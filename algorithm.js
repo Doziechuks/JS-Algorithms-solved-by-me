@@ -575,25 +575,26 @@ String.prototype.isUpperCase = function() {
 // In this Kata, a string is said to be in ALL CAPS whenever it does not contain any lowercase letter so any string containing no letters at all is trivially considered to be in ALL CAPS.
 
 
+// Power Of Two
 
+function powersOfTwo(n) {
 
+  let num = n.toString().split()
+  let powers = num.map(function (power){
 
+    return Math.pow(2, power);
 
+  });
 
-  // let combo = [];
-  // for(let i = 0; i < arr1sort.length; i++){
+  return powers;
+}
 
-  //   for(let j = 0; j < arr2sort.length; j++){
+let powerans = powersOfTwo(2);
+console.log(powerans);
 
-  //     if(arr1sort[i] === arr2sort[j]){
+// Complete the function that takes a non-negative integer n as input, and returns a list of all the powers of 2 with the exponent ranging from 0 to n ( inclusive ).
 
-  //       combo.push(arr1sort[i]); 
-
-  //     }
-
-  //   }
-
-  //   return combo;
-
-    
-  // }
+// Examples
+// n = 0  ==> [1]        # [2^0]
+// n = 1  ==> [1, 2]     # [2^0, 2^1]
+// n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]

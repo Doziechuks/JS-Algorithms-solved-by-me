@@ -579,17 +579,14 @@ String.prototype.isUpperCase = function() {
 
 function powersOfTwo(n) {
 
-  let num = n.toString().split()
-  let powers = num.map(function (power){
+  let num = n.toString().split('')
 
-    return Math.pow(2, power);
+  let mapresult = num.map(function(number){return number;});
 
-  });
-
-  return powers;
+  return mapresult;
 }
 
-let powerans = powersOfTwo(2);
+let powerans = powersOfTwo(44);
 console.log(powerans);
 
 // Complete the function that takes a non-negative integer n as input, and returns a list of all the powers of 2 with the exponent ranging from 0 to n ( inclusive ).

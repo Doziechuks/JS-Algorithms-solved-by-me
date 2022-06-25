@@ -490,15 +490,21 @@ String.prototype.isUpperCase = function () {
 // Power Of Two
 
 function powersOfTwo(n) {
-  let num = n.toString().split("");
+  
+  let num = n.toString().split('');
+  let result = [];
 
-  let mapresult = num.map(Number);
+  for(let i = 0; i <= num; i++){
 
-  return mapresult;
+    result.push(Math.pow(2, i));
+  }
+
+  return result;
+
 }
 
-let powerans = powersOfTwo(44);
-console.log(powerans);
+let pow = powersOfTwo(2);
+console.log(pow);
 
 // Complete the function that takes a non-negative integer n as input, and returns a list of all the powers of 2 with the exponent ranging from 0 to n ( inclusive ).
 
@@ -507,7 +513,59 @@ console.log(powerans);
 // n = 1  ==> [1, 2]     # [2^0, 2^1]
 // n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]
 
-var num = 123456;
-var digits = num.toString().split("");
-var realDigits = digits.map(Number);
-console.log(realDigits);
+
+//  spliting numbers into an array
+
+function splitBulkNum1(n) {
+  let num = n.toString().split("");
+  let mapresult = num.map(function (number) {
+    return number;
+  });
+
+  return mapresult;
+}
+
+let powerans = splitBulkNum1(44);
+console.log(powerans);
+
+function splitBulkNum2(n) {
+  let num = n.toString().split("");
+
+  let mapresults = num.map((number) => {
+    return number;
+  });
+
+  return mapresults;
+}
+
+let powerans1 = splitBulkNum2(44);
+console.log(powerans1);
+
+function splitBulkNum3(n) {
+  let num = n.toString().split("");
+
+  let mapresult = num.map(Number);
+
+  return mapresult;
+}
+
+let powerans2 = splitBulkNum3(44);
+console.log(powerans2);
+
+
+//reducing a number into its lower terms 
+
+function myFun (n){
+  let result = [];
+  for(let i = 0; i <= n; i++){
+    result.push(i);
+  }
+
+  return result;
+}
+
+let my = myFun(2);
+console.log(my);
+
+
+

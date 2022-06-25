@@ -14,3 +14,28 @@
 </body>
 
 </html>
+
+
+function powersOfTwo(n) {
+  let num = n.toString().split("");
+
+  let mapresult = num.map(Number);
+
+  return mapresult;
+}
+
+let powerans = powersOfTwo(44);
+console.log('as an array of numbers: ' + powerans);
+
+function powersOfTwo(n) {
+  let num = n.toString().split("");
+
+  let mapresults = num.map((number) => {
+    return number;
+  });
+
+  return mapresults;
+}
+
+let powerans1 = powersOfTwo(44);
+console.log("as an array of numbers: " + powerans1);

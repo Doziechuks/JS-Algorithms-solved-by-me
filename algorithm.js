@@ -723,5 +723,50 @@ function stairsIn20(s) {
 
 }
 
+
+// Will you make it
 console.log(stairsIn20(20));
+
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  if (mpg * fuelLeft === distanceToPump) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(zeroFuel(50, 25, 2));
+
+
+
+// compare within margin
+function closeCompare(a, b, margin=0) {
+  let absValue = Math.abs(a - b);
+  if(margin >= absValue){
+    return 0;
+  } else if(a < b){
+    return -1;
+  }else if(a > b){
+    return 1;
+  }
+  
+}
+
+console.log(closeCompare(3,5,2));
+// OR
+function closeCompare1(a, b, margin = 0) {
+  if (margin >= a-b && margin >= b-a){
+    return 0;
+  }else if(a < b){
+    return -1
+  }else if(a > b){
+    return 1;
+  }
+}
+
+console.log(closeCompare1(3,5,2));
+
+
+
+
 

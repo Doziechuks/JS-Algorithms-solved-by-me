@@ -490,17 +490,14 @@ String.prototype.isUpperCase = function () {
 // Power Of Two
 
 function powersOfTwo(n) {
-  
-  let num = n.toString().split('');
+  let num = n.toString().split("");
   let result = [];
 
-  for(let i = 0; i <= num; i++){
-
+  for (let i = 0; i <= num; i++) {
     result.push(Math.pow(2, i));
   }
 
   return result;
-
 }
 
 let pow = powersOfTwo(2);
@@ -512,7 +509,6 @@ console.log(pow);
 // n = 0  ==> [1]        # [2^0]
 // n = 1  ==> [1, 2]     # [2^0, 2^1]
 // n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]
-
 
 //  spliting numbers into an array
 
@@ -552,12 +548,11 @@ function splitBulkNum3(n) {
 let powerans2 = splitBulkNum3(44);
 console.log(powerans2);
 
+//reducing a number into its lower terms
 
-//reducing a number into its lower terms 
-
-function myFun (n){
+function myFun(n) {
   let result = [];
-  for(let i = 0; i <= n; i++){
+  for (let i = 0; i <= n; i++) {
     result.push(i);
   }
 
@@ -567,39 +562,56 @@ function myFun (n){
 let my = myFun(2);
 console.log(my);
 
-
 // Replace With Alphabet Position
 
 function alphabetPosition(text) {
   let aplphaNum = {
-    a: 1, b: 2, c: 3, d: 4, e: 5,
-    f: 6, g: 7, h: 8, i: 9, j: 10, k: 11, l: 12, m: 13, n: 14, o: 15, p: 16, q: 17,
-    r: 18, s: 19, t: 20, u: 21, v: 22, w: 23, x: 24, y: 25, z: 26
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+    e: 5,
+    f: 6,
+    g: 7,
+    h: 8,
+    i: 9,
+    j: 10,
+    k: 11,
+    l: 12,
+    m: 13,
+    n: 14,
+    o: 15,
+    p: 16,
+    q: 17,
+    r: 18,
+    s: 19,
+    t: 20,
+    u: 21,
+    v: 22,
+    w: 23,
+    x: 24,
+    y: 25,
+    z: 26,
   };
 
-  let wordSplit = text.toLowerCase().split('');
+  let wordSplit = text.toLowerCase().split("");
   let output = [];
-  for(let i = 0; i < wordSplit.length; i++){
-    
-    if(wordSplit[i] in aplphaNum === false){
-
+  for (let i = 0; i < wordSplit.length; i++) {
+    if (wordSplit[i] in aplphaNum === false) {
       output.push();
-
-    }else{
-
+    } else {
       output.push(aplphaNum[wordSplit[i]]);
     }
   }
-  return output.join(' ');
+  return output.join(" ");
 }
 
-let output = alphabetPosition('John Doe');
+let output = alphabetPosition("John Doe");
 console.log(output);
-
 
 // Who likes it?
 function likes(names) {
-  let output = '';
+  let output = "";
 
   if (names.length === 0) {
     output += `no ones likes this`;
@@ -609,39 +621,36 @@ function likes(names) {
     output += `${names[0]} and ${names[1]} like this`;
   } else if (names.length === 3) {
     output += `${names[0]}, ${names[1]} and ${names[1]} like this`;
-  }else{
-    output += `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+  } else {
+    output += `${names[0]}, ${names[1]} and ${
+      names.length - 2
+    } others like this`;
   }
 
   return output;
 }
-
 
 // redistribute income evenly
 
 function redistributeWealth(wealth) {
   let output = 0;
 
-  for(let i = 0; i < wealth.length; i++){
-
+  for (let i = 0; i < wealth.length; i++) {
     output += wealth[i];
-
   }
 
   let wealthAverage = output / wealth.length;
   let myArr = Array(wealth.length).fill(wealthAverage);
-  let wealthSort = wealth.sort().join('');
-  let ArrSort = myArr.sort().join('');
+  let wealthSort = wealth.sort().join("");
+  let ArrSort = myArr.sort().join("");
 
-  if(wealthSort === ArrSort){
+  if (wealthSort === ArrSort) {
     return undefined;
-  }else{
+  } else {
     return myArr;
   }
-  
 }
-console.log(redistributeWealth([ 1,2,3 ]));
-
+console.log(redistributeWealth([1, 2, 3]));
 
 // How many stairs will suzuki climb in 20years
 
@@ -649,80 +658,78 @@ function stairsIn20(s) {
   let output = 0;
 
   let sunday = [
-      6737, 7244, 5776, 9826, 7057, 9247, 5842, 5484, 6543, 5153, 6832, 8274,
-      7148, 6152, 5940, 8040, 9174, 7555, 7682, 5252, 8793, 8837, 7320, 8478,
-      6063, 5751, 9716, 5085, 7315, 7859, 6628, 5425, 6331, 7097, 6249, 8381,
-      5936, 8496, 6934, 8347, 7036, 6421, 6510, 5821, 8602, 5312, 7836, 8032,
-      9871, 5990, 6309, 7825,
-    ];
-    for(let a = 0; a < sunday.length; a++){
-      output += sunday[a];
-    }
-    let monday = [
-      9175, 7883, 7596, 8635, 9274, 9675, 5603, 6863, 6442, 9500, 7468, 9719,
-      6648, 8180, 7944, 5190, 6209, 7175, 5984, 9737, 5548, 6803, 9254, 5932,
-      7360, 9221, 5702, 5252, 7041, 7287, 5185, 9139, 7187, 8855, 9310, 9105,
-      9769, 9679, 7842, 7466, 7321, 6785, 8770, 8108, 7985, 5186, 9021, 9098,
-      6099, 5828, 7217, 9387,
-    ];
-     for (let b = 0; b < monday.length; b++) {
-       output += monday[b];
-     }
-    let tuesday = [
-      8646, 6945, 6364, 9563, 5627, 5068, 9157, 9439, 5681, 8674, 6379, 8292,
-      7552, 5370, 7579, 9851, 8520, 5881, 7138, 7890, 6016, 5630, 5985, 9758,
-      8415, 7313, 7761, 9853, 7937, 9268, 7888, 6589, 9366, 9867, 5093, 6684,
-      8793, 8116, 8493, 5265, 5815, 7191, 9515, 7825, 9508, 6878, 7180, 8756,
-      5717, 7555, 9447, 7703,
-    ];
-     for (let c = 0; c < tuesday.length; c++) {
-       output += tuesday[c];
-     }
-    let wednesday = [
-      6353, 9605, 5464, 9752, 9915, 7446, 9419, 6520, 7438, 6512, 7102, 5047,
-      6601, 8303, 9118, 5093, 8463, 7116, 7378, 9738, 9998, 7125, 6445, 6031,
-      8710, 5182, 9142, 9415, 9710, 7342, 9425, 7927, 9030, 7742, 8394, 9652,
-      5783, 7698, 9492, 6973, 6531, 7698, 8994, 8058, 6406, 5738, 7500, 8357,
-      7378, 9598, 5405, 9493,
-    ];
-    for (let d = 0; d < wednesday.length; d++) {
-      output += wednesday[d];
-    }
-    let thursday = [
-      6149, 6439, 9899, 5897, 8589, 7627, 6348, 9625, 9490, 5502, 5723, 8197,
-      9866, 6609, 6308, 7163, 9726, 7222, 7549, 6203, 5876, 8836, 6442, 6752,
-      8695, 8402, 9638, 9925, 5508, 8636, 5226, 9941, 8936, 5047, 6445, 8063,
-      6083, 7383, 7548, 5066, 7107, 6911, 9302, 5202, 7487, 5593, 8620, 8858,
-      5360, 6638, 8012, 8701,
-    ];
-    for (let e = 0; e < thursday.length; e++) {
-      output += thursday[e];
-    }
-    let friday = [
-      5000, 5642, 9143, 7731, 8477, 8000, 7411, 8813, 8288, 5637, 6244, 6589,
-      6362, 6200, 6781, 8371, 7082, 5348, 8842, 9513, 5896, 6628, 8164, 8473,
-      5663, 9501, 9177, 8384, 8229, 8781, 9160, 6955, 9407, 7443, 8934, 8072,
-      8942, 6859, 5617, 5078, 8910, 6732, 9848, 8951, 9407, 6699, 9842, 7455,
-      8720, 5725, 6960, 5127,
-    ];
-    for (let f = 0; f < friday.length; f++) {
-      output += friday[f];
-    }
-    let saturday = [
-      5448, 8041, 6573, 8104, 6208, 5912, 7927, 8909, 7000, 5059, 6412, 6354,
-      8943, 5460, 9979, 5379, 8501, 6831, 7022, 7575, 5828, 5354, 5115, 9625,
-      7795, 7003, 5524, 9870, 6591, 8616, 5163, 6656, 8150, 8826, 6875, 5242,
-      9585, 9649, 9838, 7150, 6567, 8524, 7613, 7809, 5562, 7799, 7179, 5184,
-      7960, 9455, 5633, 9085,
-    ];
-    for (let g = 0; g < saturday.length; g++) {
-      output += saturday[g];
-    }
+    6737, 7244, 5776, 9826, 7057, 9247, 5842, 5484, 6543, 5153, 6832, 8274,
+    7148, 6152, 5940, 8040, 9174, 7555, 7682, 5252, 8793, 8837, 7320, 8478,
+    6063, 5751, 9716, 5085, 7315, 7859, 6628, 5425, 6331, 7097, 6249, 8381,
+    5936, 8496, 6934, 8347, 7036, 6421, 6510, 5821, 8602, 5312, 7836, 8032,
+    9871, 5990, 6309, 7825,
+  ];
+  for (let a = 0; a < sunday.length; a++) {
+    output += sunday[a];
+  }
+  let monday = [
+    9175, 7883, 7596, 8635, 9274, 9675, 5603, 6863, 6442, 9500, 7468, 9719,
+    6648, 8180, 7944, 5190, 6209, 7175, 5984, 9737, 5548, 6803, 9254, 5932,
+    7360, 9221, 5702, 5252, 7041, 7287, 5185, 9139, 7187, 8855, 9310, 9105,
+    9769, 9679, 7842, 7466, 7321, 6785, 8770, 8108, 7985, 5186, 9021, 9098,
+    6099, 5828, 7217, 9387,
+  ];
+  for (let b = 0; b < monday.length; b++) {
+    output += monday[b];
+  }
+  let tuesday = [
+    8646, 6945, 6364, 9563, 5627, 5068, 9157, 9439, 5681, 8674, 6379, 8292,
+    7552, 5370, 7579, 9851, 8520, 5881, 7138, 7890, 6016, 5630, 5985, 9758,
+    8415, 7313, 7761, 9853, 7937, 9268, 7888, 6589, 9366, 9867, 5093, 6684,
+    8793, 8116, 8493, 5265, 5815, 7191, 9515, 7825, 9508, 6878, 7180, 8756,
+    5717, 7555, 9447, 7703,
+  ];
+  for (let c = 0; c < tuesday.length; c++) {
+    output += tuesday[c];
+  }
+  let wednesday = [
+    6353, 9605, 5464, 9752, 9915, 7446, 9419, 6520, 7438, 6512, 7102, 5047,
+    6601, 8303, 9118, 5093, 8463, 7116, 7378, 9738, 9998, 7125, 6445, 6031,
+    8710, 5182, 9142, 9415, 9710, 7342, 9425, 7927, 9030, 7742, 8394, 9652,
+    5783, 7698, 9492, 6973, 6531, 7698, 8994, 8058, 6406, 5738, 7500, 8357,
+    7378, 9598, 5405, 9493,
+  ];
+  for (let d = 0; d < wednesday.length; d++) {
+    output += wednesday[d];
+  }
+  let thursday = [
+    6149, 6439, 9899, 5897, 8589, 7627, 6348, 9625, 9490, 5502, 5723, 8197,
+    9866, 6609, 6308, 7163, 9726, 7222, 7549, 6203, 5876, 8836, 6442, 6752,
+    8695, 8402, 9638, 9925, 5508, 8636, 5226, 9941, 8936, 5047, 6445, 8063,
+    6083, 7383, 7548, 5066, 7107, 6911, 9302, 5202, 7487, 5593, 8620, 8858,
+    5360, 6638, 8012, 8701,
+  ];
+  for (let e = 0; e < thursday.length; e++) {
+    output += thursday[e];
+  }
+  let friday = [
+    5000, 5642, 9143, 7731, 8477, 8000, 7411, 8813, 8288, 5637, 6244, 6589,
+    6362, 6200, 6781, 8371, 7082, 5348, 8842, 9513, 5896, 6628, 8164, 8473,
+    5663, 9501, 9177, 8384, 8229, 8781, 9160, 6955, 9407, 7443, 8934, 8072,
+    8942, 6859, 5617, 5078, 8910, 6732, 9848, 8951, 9407, 6699, 9842, 7455,
+    8720, 5725, 6960, 5127,
+  ];
+  for (let f = 0; f < friday.length; f++) {
+    output += friday[f];
+  }
+  let saturday = [
+    5448, 8041, 6573, 8104, 6208, 5912, 7927, 8909, 7000, 5059, 6412, 6354,
+    8943, 5460, 9979, 5379, 8501, 6831, 7022, 7575, 5828, 5354, 5115, 9625,
+    7795, 7003, 5524, 9870, 6591, 8616, 5163, 6656, 8150, 8826, 6875, 5242,
+    9585, 9649, 9838, 7150, 6567, 8524, 7613, 7809, 5562, 7799, 7179, 5184,
+    7960, 9455, 5633, 9085,
+  ];
+  for (let g = 0; g < saturday.length; g++) {
+    output += saturday[g];
+  }
 
-    return output * s;
-
+  return output * s;
 }
-
 
 // Will you make it
 console.log(stairsIn20(20));
@@ -737,36 +744,81 @@ const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
 
 console.log(zeroFuel(50, 25, 2));
 
-
-
 // compare within margin
-function closeCompare(a, b, margin=0) {
+function closeCompare(a, b, margin = 0) {
   let absValue = Math.abs(a - b);
-  if(margin >= absValue){
+  if (margin >= absValue) {
     return 0;
-  } else if(a < b){
+  } else if (a < b) {
     return -1;
-  }else if(a > b){
+  } else if (a > b) {
     return 1;
   }
-  
 }
 
-console.log(closeCompare(3,5,2));
+console.log(closeCompare(3, 5, 2));
 // OR
 function closeCompare1(a, b, margin = 0) {
-  if (margin >= a-b && margin >= b-a){
+  if (margin >= a - b && margin >= b - a) {
     return 0;
-  }else if(a < b){
-    return -1
-  }else if(a > b){
+  } else if (a < b) {
+    return -1;
+  } else if (a > b) {
     return 1;
   }
 }
 
-console.log(closeCompare1(3,5,2));
+console.log(closeCompare1(3, 5, 2));
+
+// Reverse List Order
+function reverseList(list) {
+  return list.reverse("");
+}
+
+console.log(reverseList([7, 0, 2, 9]));
+
+// In this kata you will create a function that takes in a list and returns a list with the reverse order.
+
+// Examples (Input -> Output)
+// * [1, 2, 3, 4]  -> [4, 3, 2, 1]
+// * [9, 2, 0, 7]  -> [7, 0, 2, 9]
+
+// Finding the missing term of an AP
+let findMissing = function (list) {
+  let len = list.length;
+  let sum = ((len + 1) * (list[0] + list[len - 1])) / 2;
+  let missing = sum - list.reduce((x,y)=>x+y);
+  return missing;
+};
+console.log(findMissing([5,9]));
+
+// OR
+function missingNum(list){
+  let diff = ((list[list.length-1]) - list[0]) / list.length;
+  for(i = 0; i < list.length-1; i++){
+    if(list[i+1] - list[i] !== diff){
+      return (list[i+1] + list[i]) / 2;
+    }
+  }
+}
+
+console.log(missingNum([1,3,7,9]));
 
 
+// Narcissistic Numbers
+function isNarcissistic(n) {
+  let arr = String(n).split('').map(Number);
+  let arrLength = arr.length;
+  let sum = 0;
+  for(let i = 0; i < arr.length; i++){
+    sum += Math.pow(arr[i], arrLength);
+  }
+  if(n === sum){
+    return true;
+  }else{
+    return false;
+  }
+}
 
-
+console.log(isNarcissistic(8208));
 

@@ -787,53 +787,51 @@ console.log(reverseList([7, 0, 2, 9]));
 let findMissing = function (list) {
   let len = list.length;
   let sum = ((len + 1) * (list[0] + list[len - 1])) / 2;
-  let missing = sum - list.reduce((x,y)=>x+y);
+  let missing = sum - list.reduce((x, y) => x + y);
   return missing;
 };
-console.log(findMissing([5,9]));
+console.log(findMissing([5, 9]));
 
 // OR
-function missingNum(list){
-  let diff = ((list[list.length-1]) - list[0]) / list.length;
-  for(i = 0; i < list.length-1; i++){
-    if(list[i+1] - list[i] !== diff){
-      return (list[i+1] + list[i]) / 2;
+function missingNum(list) {
+  let diff = (list[list.length - 1] - list[0]) / list.length;
+  for (i = 0; i < list.length - 1; i++) {
+    if (list[i + 1] - list[i] !== diff) {
+      return (list[i + 1] + list[i]) / 2;
     }
   }
 }
 
-console.log(missingNum([1,3,7,9]));
-
+console.log(missingNum([1, 3, 7, 9]));
 
 // Narcissistic Numbers
 function isNarcissistic(n) {
-  let arr = String(n).split('').map(Number);
+  let arr = String(n).split("").map(Number);
   let arrLength = arr.length;
   let sum = 0;
-  for(let i = 0; i < arr.length; i++){
+  for (let i = 0; i < arr.length; i++) {
     sum += Math.pow(arr[i], arrLength);
   }
-  if(n === sum){
+  if (n === sum) {
     return true;
-  }else{
+  } else {
     return false;
   }
 }
 
 console.log(isNarcissistic(8208));
 
-
 // Moving zeros to the end
 function moveZeros(arr) {
   let newArr = [];
-  let zeroArr =[];
-  for(let i = 0; i < arr.length; i++){
-    if(arr[i] !== 0){
+  let zeroArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
       newArr.push(arr[i]);
     }
-     if(arr[i] === 0){
-       zeroArr.push(arr[i]);
-     }
+    if (arr[i] === 0) {
+      zeroArr.push(arr[i]);
+    }
   }
   let arrConcat = newArr.concat(zeroArr);
   return arrConcat;
@@ -841,21 +839,190 @@ function moveZeros(arr) {
 
 console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
 
-
 // A wolf in sheep's clothing
 function warnTheSheep(queue) {
-  let sheepidx = queue.length - queue.indexOf('wolf') - 1;
-  if(sheepidx === 0){
+  let sheepidx = queue.length - queue.indexOf("wolf") - 1;
+  if (sheepidx === 0) {
     return "Pls go away and stop eating my sheep";
-  }else{
-    return 'Oi! Sheep number' + sheepidx  + '! You are about to be eaten by a wolf!';
-
+  } else {
+    return (
+      "Oi! Sheep number" + sheepidx + "! You are about to be eaten by a wolf!"
+    );
   }
 }
 
-console.log(warnTheSheep(["sheep", "sheep", "sheep", "sheep",'sheep', "sheep", 'sheep', 'wolf', 'sheep']));
+console.log(
+  warnTheSheep([
+    "sheep",
+    "sheep",
+    "sheep",
+    "sheep",
+    "sheep",
+    "sheep",
+    "sheep",
+    "wolf",
+    "sheep",
+  ])
+);
+
+// Next bigger number with the same digits
+function nextBigger(n) {
+  let Arr = String(n).split("").map(Number);
+  let ArrLast = Arr[Arr.length - 1];
+  let ArrSecond = Arr[Arr.length - 2];
+  let ans = [];
+  if (ArrLast > ArrSecond) {
+    ans.push(
+      Arr.splice(0, Arr.length - 2)
+        .concat(Arr.reverse())
+        .join("")
+    );
+  }
+
+  let num = Number(ans);
+  return num;
+}
+
+console.log(nextBigger(2005));
+
+// Sum of Digits / Digital Root
+function digital_root(n) {
+  let arr = String(n).split("").map(Number);
+  let sum = 0;
+  if (arr.length === 1) {
+    return n;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    return digital_root(sum);
+  }
+}
+
+console.log(digital_root(493193));
 
 
 
+//linked list insertion
+
+function SinglyLinkedListNode(data) {
+  this.head = data;
+  this.next = null;
+}
+
+function SinglyLinkedList() {
+  this.head = null;
+  this.size = 0;
+}
+
+SinglyLinkedList.prototype.isEmpty = function () {
+  return this.size === 0;
+};
+
+SinglyLinkedList.prototype.insert = function (value) {
+  if (this.head === null) {
+    this.head = new SinglyLinkedListNode(value);
+  } else {
+    let temp = this.head;
+    this.head = new SinglyLinkedListNode(value);
+    this.head.next = temp;
+  }
+
+  this.size++;
+};
+
+let list1 = new SinglyLinkedList();
+list1.insert(1);
+list1.insert(12);
+list1.insert(20);
+list1.insert(1);
+
+console.log(list1);
 
 
+// Palendromic
+
+function palendromic(word) {
+  let wordSplit = word.split(" ");
+  let result = [];
+  let longest = "";
+  for (let i = 0; i < wordSplit.length; i++) {
+    let splitReverse = wordSplit[i].split("").reverse().join("");
+    if (splitReverse === wordSplit[i]) {
+      result.push(wordSplit[i]);
+    }
+  }
+  for (let j = 0; j < result.length; j++) {
+    if (result[j].length > longest.length) {
+      longest = result[j];
+    }
+  }
+  return longest;
+}
+
+console.log(palendromic("madam is eye of leg"));
+
+
+// stacks
+class Stack {
+  constructor() {
+    this.item = [];
+  }
+
+  add(element) {
+    return this.item.push(element);
+  }
+  remove() {
+    if (this.item.length > 0) {
+      return this.item.pop();
+    }
+  }
+  peek() {
+    return this.item[0];
+  }
+  isEmpty() {
+    return this.item.length === 0;
+  }
+
+  size() {
+    return this.item.length;
+  }
+
+  clear() {
+    return (this.item = []);
+  }
+  reverse() {
+    let str = this.item.join("");
+    let ans = [];
+    let result = "";
+    for (let i = 0; i < str.length; i++) {
+      ans.push(str[i]);
+    }
+    for (let i = 0; i < str.length; i++) {
+      result += ans.pop();
+    }
+    return result;
+  }
+}
+
+let stack = new Stack();
+stack.add("Access2Tech");
+console.log(stack.reverse());
+
+//Adding Arrays
+function arrAdder(arr) {
+  let str = "";
+  for (i = 0; i < arr[0].length; i++) {
+    for (j = 0; j < arr.length; j++) {
+      str += arr[j][i];
+    }
+    str += " ";
+  }
+  return str.trim();
+}
+
+let Arr = arrAdder([['J','L','L','M']
+,['u','i','i','a']
+,['s','v','f','n']
+,['t','e','e','']])
+console.log(Arr)

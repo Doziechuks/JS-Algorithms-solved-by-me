@@ -1100,3 +1100,16 @@ function repeatStringNumTimes(str, num) {
   return ans
 }
 console.log(repeatStringNumTimes("abc", 3));
+
+
+//Truncating a string
+function truncateString(str, num) {
+  let word = str.length;
+  let ans = "";
+  if (word > num) {
+    return (ans += str.slice(0, num) + "...");
+  }
+  return str;
+}
+
+console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));

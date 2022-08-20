@@ -1081,3 +1081,11 @@ console.log(
     [1000, 1001, 857, 1],
   ])
 );
+
+//Confirm the ending of a string without using the endsWith method
+function confirmEnding(str, target) {
+  let ans = str.slice(str.length - target.length) === target;
+  return ans;
+}
+
+console.log(confirmEnding("Bastian", "n"));

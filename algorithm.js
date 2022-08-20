@@ -1037,3 +1037,20 @@ function factorialize(num) {
 }
 
 console.log(factorialize(5));
+
+
+//Longest word in a string
+function findLongestWordLength(str) {
+  let arr = str.split(" ");
+  let longest = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longest.length) {
+      longest = arr[i];
+    }
+  }
+  return longest.length;
+}
+
+console.log(
+  findLongestWordLength("The quick brown fox jumped over the lazy dog")
+);

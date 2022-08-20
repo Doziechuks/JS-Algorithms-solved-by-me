@@ -1026,3 +1026,14 @@ let Arr = arrAdder([['J','L','L','M']
 ,['s','v','f','n']
 ,['t','e','e','']])
 console.log(Arr)
+
+//Factorial
+function factorialize(num) {
+  let arr = 1;
+  for (let i = 1; i <= num; i++) {
+    arr *= i;
+  }
+  return arr;
+}
+
+console.log(factorialize(5));

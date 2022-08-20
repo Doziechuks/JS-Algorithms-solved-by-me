@@ -1089,3 +1089,14 @@ function confirmEnding(str, target) {
 }
 
 console.log(confirmEnding("Bastian", "n"));
+
+
+//repeat string without using the string repeat method
+function repeatStringNumTimes(str, num) {
+  let ans = '';
+  for(let i = 0; i < num; i++){
+    ans += str
+  }
+  return ans
+}
+console.log(repeatStringNumTimes("abc", 3));

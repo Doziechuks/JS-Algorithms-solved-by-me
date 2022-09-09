@@ -1113,3 +1113,18 @@ function truncateString(str, num) {
 }
 
 console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));
+
+
+// filtering an Array
+function filteredArray(arr, elem) {
+  let newArr = [];
+    for(let i = 0; i < arr.length; i++){
+      let ite = arr[i];
+      if(ite.indexOf(elem) === -1){
+        newArr.push(ite)
+      }
+    }
+  return newArr;
+}
+
+console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));

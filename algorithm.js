@@ -1262,3 +1262,19 @@ function rot13(encodedStr) {
   // Only change code above this line
   return decodedArr.join(""); // Array to String
 }
+
+// palindrome checker
+ function palindrome(str) {
+   let onlyLetters = str.replace(
+     /[`~ !@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi,
+     ""
+   );
+   onlyLetters = onlyLetters.toLowerCase().split("");
+   for (let i = 0; i < onlyLetters.length - 1 / 2; i++) {
+     if (onlyLetters[i] !== onlyLetters[onlyLetters.length - i - 1]) {
+       return false;
+       break;
+     }
+   }
+   return true;
+ }

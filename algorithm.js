@@ -1128,3 +1128,41 @@ function filteredArray(arr, elem) {
 }
 
 console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+
+
+// using for...in loop in an object
+const users = {
+  Alan: {
+    online: false,
+  },
+  Jeff: {
+    online: true,
+  },
+  Sarah: {
+    online: false,
+  },
+};
+
+function countOnline(usersObj) {
+  let ans = 0;
+  for (let user in usersObj) {
+    if (usersObj[user].online === true) {
+      ans++;
+    }
+  }
+  return ans;
+}
+
+console.log(countOnline(users));
+
+
+// square an array negelecting negative nums and non-intergers
+const squareList = (arr) => {
+  let ans = arr
+    .filter((pos) => pos >= 0 && pos % parseInt(pos) === 0)
+    .map((num) => num * num);
+  return ans;
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);

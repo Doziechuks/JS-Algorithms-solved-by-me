@@ -1166,3 +1166,17 @@ const squareList = (arr) => {
 
 const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
 console.log(squaredIntegers);
+
+
+// sort an array without changing the original Array
+const globalArray = [5, 6, 3, 2, 9];
+console.log(globalArray);
+function nonMutatingSort(arr) {
+  let newArr = [...arr];
+  newArr.sort(function (a, b) {
+    return a - b;
+  });
+  return newArr;
+}
+
+console.log(nonMutatingSort(globalArray));
